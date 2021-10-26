@@ -1,4 +1,5 @@
 import pygame
+import os
 
 class Ships:
     def __init__(self, battle_ship):
@@ -7,8 +8,9 @@ class Ships:
         self.screen_rect = battle_ship.screen.get_rect()
 
         # Load ships image
-        self.image_blue_ship = pygame.image.load("C:\\Users\\Sebi\\Desktop\\blue_ship.bmp")
-        self.image_red_ship = pygame.image.load("C:\\Users\\Sebi\\Desktop\\red_ship.bmp")
+        dirname = os.path.dirname(__file__)
+        self.image_blue_ship = pygame.image.load(os.path.join(dirname, "images/blue_ship.bmp"))
+        self.image_red_ship = pygame.image.load(os.path.join(dirname, "images/red_ship.bmp"))
 
         # Rotated ships | red ship left, blue ship right
         self.red_ship = pygame.transform.rotate(self.image_red_ship, 270)

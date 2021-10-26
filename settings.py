@@ -1,4 +1,5 @@
 import pygame
+import os
 
 class Settings:
     def __init__(self):
@@ -22,9 +23,10 @@ class Settings:
         self.bullets_allowed = 3
 
         # Buttons
-        self.image_play_button = pygame.image.load("C:\\Users\\Sebi\\Desktop\\play button.bmp")
+        dirname = os.path.dirname(__file__)
+        self.image_play_button = pygame.image.load(os.path.join(dirname, "images/play_button.bmp"))
         self.image_play_button = pygame.transform.scale(self.image_play_button, (150, 110))
-        self.image_quit_button = pygame.image.load("C:\\Users\\Sebi\\Desktop\\quit button.bmp")
+        self.image_quit_button = pygame.image.load(os.path.join(dirname, "images/quit_button.bmp"))
         self.image_quit_button = pygame.transform.scale(self.image_quit_button, (150, 110))
 
         # Get buttons rect
@@ -35,9 +37,10 @@ class Settings:
         self.rect_quit_button.topleft = (900 / 1.5, 500 / 2)
 
         # Music / Sounds
-        self.music = pygame.mixer.music.load("C:\\Users\\Sebi\\Desktop\\BattleShip Game\\music1_Trim.ogg")
-        self.laser_sound1 = pygame.mixer.Sound("C:\\Users\\Sebi\\Desktop\\BattleShip Game\\pew_Trim.ogg")
-        self.laser_sound2 = pygame.mixer.Sound("C:\\Users\\Sebi\\Desktop\BattleShip Game\\pewv2_Trim.ogg")
-        self.explosion = pygame.mixer.Sound("C:\\Users\\Sebi\\Desktop\\BattleShip Game\\explosion2_Trim.ogg")
+        dirname = os.path.dirname(__file__)
+        self.music = pygame.mixer.music.load(os.path.join(dirname, "sounds/backgrounds_music.ogg"))
+        self.laser_sound1 = pygame.mixer.Sound(os.path.join(dirname, "sounds/pew_red_ship.ogg"))
+        self.laser_sound2 = pygame.mixer.Sound(os.path.join(dirname, "sounds/pew_blue_ship.ogg"))
+        self.explosion = pygame.mixer.Sound(os.path.join(dirname, "sounds/explosion.ogg"))
         pygame.mixer.music.play(-1)
 

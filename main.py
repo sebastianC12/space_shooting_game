@@ -1,5 +1,6 @@
 import pygame
 import sys
+import os
 from settings import Settings
 from ships import Ships
 from bullets import Bullets
@@ -12,7 +13,8 @@ class BattleShip:
     def __init__(self):
         pygame.init()
         self.settings = Settings()
-        self.screen_image = pygame.image.load("C:\\Users\\Sebi\\Desktop\\HkaoI.png")
+        dirname = os.path.dirname(__file__)
+        self.screen_image = pygame.image.load(os.path.join(dirname, "images/background.png"))
         self.screen_image = pygame.transform.scale(self.screen_image, (self.settings.screen_width, self.settings.screen_height))
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Battle Ship")
